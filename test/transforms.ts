@@ -16,7 +16,7 @@ test('order', async () => {
           "catchphrase": "'cat' 'fat'",
           "data": null,
           "status": "ONLINE",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
         Object {
           "age_range": "[25,35)",
@@ -62,14 +62,14 @@ test('order on multiple columns', async () => {
           "data": null,
           "id": 2,
           "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
         Object {
           "channel_id": 1,
           "data": null,
           "id": 1,
           "message": "Hello World 👋",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
       ],
       "error": null,
@@ -90,7 +90,7 @@ test('limit', async () => {
           "catchphrase": "'cat' 'fat'",
           "data": null,
           "status": "ONLINE",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
       ],
       "error": null,
@@ -145,7 +145,7 @@ test('single', async () => {
         "catchphrase": "'cat' 'fat'",
         "data": null,
         "status": "ONLINE",
-        "username": "supabot",
+        "username": "khulnasoft",
       },
       "error": null,
       "status": 200,
@@ -231,7 +231,7 @@ test('select on insert', async () => {
 
 test('select on rpc', async () => {
   const res = await postgrest
-    .rpc('get_username_and_status', { name_param: 'supabot' })
+    .rpc('get_username_and_status', { name_param: 'khulnasoft' })
     .select('status')
   expect(res).toMatchInlineSnapshot(`
     Object {
@@ -254,7 +254,7 @@ test('csv', async () => {
     Object {
       "count": null,
       "data": "username,data,age_range,status,catchphrase
-    supabot,,\\"[1,2)\\",ONLINE,\\"'cat' 'fat'\\"
+    khulnasoft,,\\"[1,2)\\",ONLINE,\\"'cat' 'fat'\\"
     kiwicopple,,\\"[25,35)\\",OFFLINE,\\"'bat' 'cat'\\"
     awailas,,\\"[25,35)\\",ONLINE,\\"'bat' 'rat'\\"
     dragarcia,,\\"[20,30)\\",ONLINE,\\"'fat' 'rat'\\"",

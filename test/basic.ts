@@ -15,7 +15,7 @@ test('basic select table', async () => {
           "catchphrase": "'cat' 'fat'",
           "data": null,
           "status": "ONLINE",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
         Object {
           "age_range": "[25,35)",
@@ -54,7 +54,7 @@ test('basic select view', async () => {
       "data": Array [
         Object {
           "non_updatable_column": 1,
-          "username": "supabot",
+          "username": "khulnasoft",
         },
         Object {
           "non_updatable_column": 1,
@@ -77,7 +77,7 @@ test('basic select view', async () => {
 })
 
 test('rpc', async () => {
-  const res = await postgrest.rpc('get_status', { name_param: 'supabot' })
+  const res = await postgrest.rpc('get_status', { name_param: 'khulnasoft' })
   expect(res).toMatchInlineSnapshot(`
     Object {
       "count": null,
@@ -162,7 +162,7 @@ test('switch schema', async () => {
           "age_range": "[1,2)",
           "data": null,
           "status": "ONLINE",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
         Object {
           "age_range": "[25,35)",
@@ -207,7 +207,7 @@ test('dynamic schema', async () => {
           "age_range": "[1,2)",
           "data": null,
           "status": "ONLINE",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
         Object {
           "age_range": "[25,35)",
@@ -285,7 +285,7 @@ describe('basic insert, update, delete', () => {
   test('basic insert', async () => {
     let res = await postgrest
       .from('messages')
-      .insert({ message: 'foo', username: 'supabot', channel_id: 1 })
+      .insert({ message: 'foo', username: 'khulnasoft', channel_id: 1 })
       .select()
     expect(res).toMatchInlineSnapshot(`
       Object {
@@ -296,7 +296,7 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -315,21 +315,21 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -342,7 +342,7 @@ describe('basic insert, update, delete', () => {
   test('upsert', async () => {
     let res = await postgrest
       .from('messages')
-      .upsert({ id: 3, message: 'foo', username: 'supabot', channel_id: 2 })
+      .upsert({ id: 3, message: 'foo', username: 'khulnasoft', channel_id: 2 })
       .select()
     expect(res).toMatchInlineSnapshot(`
       Object {
@@ -353,7 +353,7 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -372,21 +372,21 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -400,8 +400,8 @@ describe('basic insert, update, delete', () => {
     let res = await postgrest
       .from('messages')
       .insert([
-        { message: 'foo', username: 'supabot', channel_id: 1 },
-        { message: 'foo', username: 'supabot', channel_id: 1 },
+        { message: 'foo', username: 'khulnasoft', channel_id: 1 },
+        { message: 'foo', username: 'khulnasoft', channel_id: 1 },
       ])
       .select()
     expect(res).toMatchInlineSnapshot(`
@@ -413,14 +413,14 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 4,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 5,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -439,35 +439,35 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 4,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 5,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -492,21 +492,21 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 4,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 5,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -525,35 +525,35 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 4,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 5,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -574,21 +574,21 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 4,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 5,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -607,14 +607,14 @@ describe('basic insert, update, delete', () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -748,7 +748,7 @@ test('allow ordering on JSON column', async () => {
         "catchphrase": "'cat' 'fat'",
         "data": null,
         "status": "ONLINE",
-        "username": "supabot",
+        "username": "khulnasoft",
       },
       Object {
         "age_range": "[25,35)",
@@ -855,7 +855,7 @@ test('select with count:exact', async () => {
           "catchphrase": "'cat' 'fat'",
           "data": null,
           "status": "ONLINE",
-          "username": "supabot",
+          "username": "khulnasoft",
         },
         Object {
           "age_range": "[25,35)",
@@ -887,7 +887,7 @@ test('select with count:exact', async () => {
 })
 
 test("rpc with count: 'exact'", async () => {
-  const res = await postgrest.rpc('get_status', { name_param: 'supabot' }, { count: 'exact' })
+  const res = await postgrest.rpc('get_status', { name_param: 'khulnasoft' }, { count: 'exact' })
   expect(res).toMatchInlineSnapshot(`
     Object {
       "count": 1,
@@ -902,7 +902,7 @@ test("rpc with count: 'exact'", async () => {
 test('rpc with head:true, count:exact', async () => {
   const res = await postgrest.rpc(
     'get_status',
-    { name_param: 'supabot' },
+    { name_param: 'khulnasoft' },
     { head: true, count: 'exact' }
   )
   expect(res).toMatchInlineSnapshot(`
@@ -919,7 +919,7 @@ test('rpc with head:true, count:exact', async () => {
 test('rpc with get:true, count:exact', async () => {
   const res = await postgrest.rpc(
     'get_status',
-    { name_param: 'supabot' },
+    { name_param: 'khulnasoft' },
     { get: true, count: 'exact' }
   )
   expect(res).toMatchInlineSnapshot(`
@@ -984,7 +984,7 @@ describe("insert, update, delete with count: 'exact'", () => {
   test("insert with count: 'exact'", async () => {
     let res = await postgrest
       .from('messages')
-      .insert({ message: 'foo', username: 'supabot', channel_id: 1 }, { count: 'exact' })
+      .insert({ message: 'foo', username: 'khulnasoft', channel_id: 1 }, { count: 'exact' })
       .select()
     expect(res).toMatchInlineSnapshot(`
       Object {
@@ -995,7 +995,7 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 6,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1014,21 +1014,21 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 6,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1041,7 +1041,7 @@ describe("insert, update, delete with count: 'exact'", () => {
   test("upsert with count: 'exact'", async () => {
     let res = await postgrest
       .from('messages')
-      .upsert({ id: 3, message: 'foo', username: 'supabot', channel_id: 2 }, { count: 'exact' })
+      .upsert({ id: 3, message: 'foo', username: 'khulnasoft', channel_id: 2 }, { count: 'exact' })
       .select()
     expect(res).toMatchInlineSnapshot(`
       Object {
@@ -1052,7 +1052,7 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1071,28 +1071,28 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 6,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1107,8 +1107,8 @@ describe("insert, update, delete with count: 'exact'", () => {
       .from('messages')
       .insert(
         [
-          { message: 'foo', username: 'supabot', channel_id: 1 },
-          { message: 'foo', username: 'supabot', channel_id: 1 },
+          { message: 'foo', username: 'khulnasoft', channel_id: 1 },
+          { message: 'foo', username: 'khulnasoft', channel_id: 1 },
         ],
         { count: 'exact' }
       )
@@ -1122,14 +1122,14 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 7,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 8,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1148,42 +1148,42 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 6,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 7,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 1,
             "data": null,
             "id": 8,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1264,28 +1264,28 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 6,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 7,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 8,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1304,42 +1304,42 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 6,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 7,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 8,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1364,28 +1364,28 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 6,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 3,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 7,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 8,
             "message": "foo",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,
@@ -1404,14 +1404,14 @@ describe("insert, update, delete with count: 'exact'", () => {
             "data": null,
             "id": 1,
             "message": "Hello World 👋",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
           Object {
             "channel_id": 2,
             "data": null,
             "id": 2,
             "message": "Perfection is attained, not when there is nothing more to add, but when there is nothing left to take away.",
-            "username": "supabot",
+            "username": "khulnasoft",
           },
         ],
         "error": null,

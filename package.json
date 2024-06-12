@@ -1,6 +1,6 @@
 {
   "name": "@khulnasoft/postgrest-js",
-  "version": "v1.15.2",
+  "version": "0.0.0-automated",
   "description": "Isomorphic PostgREST client",
   "keywords": [
     "postgrest",
